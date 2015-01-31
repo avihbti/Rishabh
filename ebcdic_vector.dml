@@ -1,0 +1,31 @@
+record // AC-CLAIM-DATA
+    record // AC-HEADER-INFO
+      ebcdic string(1) ac_rec_typ;
+      ebcdic decimal(16,0) ac_run_dt;
+      ebcdic string(9) ac_src_sys;
+      ebcdic decimal(8,0) ac_src_sys_dt;
+      ebcdic string(10) Filler_1;
+    end ac_header_info;
+    record // AC-KEY
+      record // AC-KEY1
+        record // AC-PA-KEY1
+          record // AC-ME-KEY1
+            ebcdic string(9) ac_pa_id;
+          end ac_me_key1;
+          record // AC-PA-REL-NAME
+            ebcdic string(1) ac_pa_rel;
+            ebcdic string(6) ac_pa_id_name;
+          end ac_pa_rel_name;
+        end ac_pa_key1;
+        ebcdic string(1) ac_sys_id;
+        ebcdic string(2) ac_clm_detl_seq_id;
+        record // AC-CL-KEY1
+          ebcdic string(9) ac_cl_id;
+          record // AC-CL-GEN-X
+            ebcdic decimal(2,0) ac_cl_gen;
+          end ac_cl_gen_x;
+        end ac_cl_key1;
+      end ac_key1;
+    end ac_key;
+       ebcdic string(1) newline='\n';
+end;
