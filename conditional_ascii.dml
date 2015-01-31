@@ -1,0 +1,55 @@
+record
+   string("|") rec_type;
+   string("|") first_name;
+   string("|") last_name;
+   string("|") email_address;
+   string("|") gender;
+   string("|") ssn;
+   string("|") dob;
+   string("|") member_match;
+   string("|") aetna_number;
+   string("|") cumb_id_no;
+   string("|") cumb_id_seq_no;
+   string("|") group_control_number;
+   string("|") ps_unique;
+   string("|") hra_id;
+   string("|") hra_date_timestamp;
+   if(rec_type == "Q")
+      begin
+         string("|") questionnaire_id;
+         string("|") question_id;
+         string("|") question_text;
+         string("|") answer_id;
+         string("|") answer_text;
+         string("|") answer_score;
+         string("\n") health_fund_ind_q;
+      end
+   else
+     if (rec_type == "C")
+      begin
+         string("|") condition_id;
+         string("|") condition_name;
+         string("|") total_rescaled_score;
+         string("|") mod_rescaled_score;
+         string("|") non_mod_rescaled_score;
+         string("\n") health_fund_ind_c;
+      end
+     else
+       if (rec_type == "W")
+         begin
+           string("|") time_scaled_score;
+           string("|") physical_scaled_score;
+           string("|") mental_scaled_score;
+           string("|") output_scaled_score;
+           string("|") WLQ_index;
+           string("|") per_decr_productivity;
+           string("|") per_incr_work_hrs;
+           string("\n") wlq_productivity_loss_score;
+         end
+       else
+         if (rec_type == "S")
+           begin
+             string("|") source_cd;
+             string("\n") source_name;
+           end
+end
