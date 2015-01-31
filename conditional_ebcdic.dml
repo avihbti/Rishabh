@@ -1,0 +1,55 @@
+record
+   ebcdic string("|") rec_type;
+   ebcdic string("|") first_name;
+   ebcdic string("|") last_name;
+   ebcdic string("|") email_address;
+   ebcdic string("|") gender;
+   ebcdic string("|") ssn;
+   ebcdic string("|") dob;
+   ebcdic string("|") member_match;
+   ebcdic string("|") aetna_number;
+   ebcdic string("|") cumb_id_no;
+   ebcdic string("|") cumb_id_seq_no;
+   ebcdic string("|") group_control_number;
+   ebcdic string("|") ps_unique;
+   ebcdic string("|") hra_id;
+   ebcdic string("|") hra_date_timestamp;
+   if(rec_type == "Q")
+      begin
+         ebcdic string("|") questionnaire_id;
+         ebcdic string("|") question_id;
+         ebcdic string("|") question_text;
+         ebcdic string("|") answer_id;
+         ebcdic string("|") answer_text;
+         ebcdic string("|") answer_score;
+         ebcdic string("\n") health_fund_ind_q;
+      end
+   else
+     if (rec_type == "C")
+      begin
+         ebcdic string("|") condition_id;
+         ebcdic string("|") condition_name;
+         ebcdic string("|") total_rescaled_score;
+         ebcdic string("|") mod_rescaled_score;
+         ebcdic string("|") non_mod_rescaled_score;
+         ebcdic string("\n") health_fund_ind_c;
+      end
+     else
+       if (rec_type == "W")
+         begin
+           ebcdic string("|") time_scaled_score;
+           ebcdic string("|") physical_scaled_score;
+           ebcdic string("|") mental_scaled_score;
+           ebcdic string("|") output_scaled_score;
+           ebcdic string("|") WLQ_index;
+           ebcdic string("|") per_decr_productivity;
+           ebcdic string("|") per_incr_work_hrs;
+           ebcdic string("\n") wlq_productivity_loss_score;
+         end
+       else
+         if (rec_type == "S")
+           begin
+             ebcdic string("|") source_cd;
+             ebcdic string("\n") source_name;
+           end
+end
